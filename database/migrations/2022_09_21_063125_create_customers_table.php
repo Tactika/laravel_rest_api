@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('postal_code');
+            $table->integer('business_id'); // Business Foreign Key
             $table->timestamps();
         });
     }

@@ -4,15 +4,17 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Invoice;
+use App\Models\Customer;
 
 class InvoiceCreate extends Component
 {
 
     public $customer_id;
     public $amount;
-    public $status;
+    public $status = ['B', 'P', 'V'];
     public $billed_date;
     public $paid_date;
+    public $customers;
 
     public $rules = [
         'customer_id' => 'required|numeric',
@@ -21,6 +23,11 @@ class InvoiceCreate extends Component
         'billed_date' => 'required|date',
         'paid_date' => 'nullable|date',
     ];
+
+    public function mount()
+    {
+        $this->customers = Customer::all();
+    }
 
     public function submit()
     {
