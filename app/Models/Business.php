@@ -5,27 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Business extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'type',
-        'email',
         'address',
         'city',
         'state',
         'postal_code',
+        'phone',
     ];
 
-    public function invoices()
+    public function customers()
     {
-        return $this->hasMany(Invoice::class);
-    }
-
-    public function businesses()
-    {
-        return $this->belongsTo(Business::class);
+        return $this->hasMany(Customer::class);
     }
 }

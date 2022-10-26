@@ -24,3 +24,8 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
     Route::apiResource('customers', CustomerController::class);
     Route::apiResource('invoices', InvoiceController::class);
 });
+
+Route::get('customers/create', [CustomerController::class, 'create'])->name('customers.create');
+Route::get('invoices/create', [InvoiceController::class, 'create'])->name('invoices.create');
+Route::post('customers', [CustomerController::class, 'store'])->name('customers.store');
+Route::post('invoices', [InvoiceController::class, 'store'])->name('invoices.store');
