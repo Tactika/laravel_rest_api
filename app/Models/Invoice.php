@@ -17,6 +17,11 @@ class Invoice extends Model
         'paid_date',
     ];
 
+    public function customer_name()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id', 'id')->select('id', 'name');
+    }
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);
